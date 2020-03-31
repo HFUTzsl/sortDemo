@@ -1,9 +1,13 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SortDemo {
+    Map map = new HashMap();
 
     //1冒泡排序
     public void bubbleSort(int[] a, int n){
+
         if(n <= 1) return;
         for (int i = 0; i < n; i++){
             //提前退出循环
@@ -91,7 +95,7 @@ public class SortDemo {
             }
         }
 
-        //4.快速排序
+        //5.快速排序
         void quick_sort(int s[], int l, int r)
         {
             if (l < r)
