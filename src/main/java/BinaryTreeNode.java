@@ -50,9 +50,9 @@ public class BinaryTreeNode {
     //后序遍历
     public void postOrder(BinaryTreeNode node){
         if (node != null){
-            postOrder(node.getLeftChirld());
-            postOrder(node.getRightChirld());
-            System.out.println(node.getData());
+            postOrder(node.getLeftChirld());//先遍历左子树
+            postOrder(node.getRightChirld());//再遍历右子树
+            System.out.println(node.getData());//最后遍历根节点
         }
     }
     //层序遍历
