@@ -1,3 +1,8 @@
+import javax.swing.tree.TreeNode;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 //实现一棵二叉树（比普通的二叉树容易，因为二叉树仅有左右两个子节点）
 public class BinaryTreeNode {
@@ -49,5 +54,31 @@ public class BinaryTreeNode {
             postOrder(node.getRightChirld());
             System.out.println(node.getData());
         }
+    }
+    //层序遍历
+    public List<List<Integer>> levelOrder(BinaryTreeNode node) {
+        if(node == null){
+            return new ArrayList();
+        }
+        List<List<Integer>> res = new ArrayList();
+        Queue<BinaryTreeNode> queue = new LinkedList();
+        queue.add(node);
+        while(!queue.isEmpty()){
+            int count = queue.size();
+            List<Integer> list = new ArrayList<Integer>();
+            while(count>0){
+                BinaryTreeNode node1 = queue.poll();
+                list.add(node1.getData());
+                if(node1.getLeftChirld() != null){
+                    queue.add(node1);
+                }
+                if(node1.rightChirld != null){
+                    queue.add(node1.rightChirld);
+                }
+                count--;
+            }
+            res.add(list);
+        }
+        return res;
     }
 }
